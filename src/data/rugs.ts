@@ -16,7 +16,7 @@ export const rugs: Rug[] = [
     style: 'medallion',
     color: 'Ivory',
     sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 2480,
+    price: 24800,
     knotCount: 'Approx. 100 KPSI',
     material: 'Hand-knotted wool',
     description:
@@ -31,7 +31,7 @@ export const rugs: Rug[] = [
     style: 'medallion',
     color: 'Indigo',
     sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 4200,
+    price: 42000,
     knotCount: 'Approx. 250 KPSI',
     material: 'Wool & silk blend',
     description:
@@ -46,7 +46,7 @@ export const rugs: Rug[] = [
     style: 'diamonds',
     color: 'Terracotta',
     sizes: ["5'×8'", "8'×10'"],
-    price: 1680,
+    price: 16800,
     knotCount: 'Plush ~2cm pile',
     material: 'Undyed sheep wool',
     description:
@@ -61,7 +61,7 @@ export const rugs: Rug[] = [
     style: 'lattice',
     color: 'Charcoal',
     sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 1240,
+    price: 12400,
     knotCount: 'Flat-weave',
     material: 'Vegetable-dyed wool',
     description:
@@ -75,7 +75,7 @@ export const rugs: Rug[] = [
     style: 'stripes',
     color: 'Sage',
     sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 980,
+    price: 9800,
     knotCount: 'Flat-weave',
     material: 'Hand-knotted wool',
     description:
@@ -89,7 +89,7 @@ export const rugs: Rug[] = [
     style: 'bordered',
     color: 'Rose',
     sizes: ["5'×8'", "8'×10'"],
-    price: 1520,
+    price: 15200,
     knotCount: 'Approx. 90 KPSI',
     material: 'Hand-knotted wool',
     description:
@@ -103,7 +103,7 @@ export const rugs: Rug[] = [
     style: 'medallion',
     color: 'Saffron',
     sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 3260,
+    price: 32600,
     knotCount: 'Approx. 200 KPSI',
     material: 'Wool on cotton warp',
     description:
@@ -118,7 +118,7 @@ export const rugs: Rug[] = [
     style: 'diamonds',
     color: 'Slate',
     sizes: ["2'×3'", "5'×8'"],
-    price: 1120,
+    price: 11200,
     knotCount: 'Flat-weave',
     material: 'Hand-knotted wool',
     description:
@@ -132,7 +132,7 @@ export const rugs: Rug[] = [
     style: 'lattice',
     color: 'Ivory',
     sizes: ["5'×8'", "8'×10'", 'Runner'],
-    price: 1380,
+    price: 13800,
     knotCount: 'Approx. 80 KPSI',
     material: 'Undyed sheep wool',
     description:
@@ -146,7 +146,7 @@ export const rugs: Rug[] = [
     style: 'stripes',
     color: 'Indigo',
     sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 860,
+    price: 8600,
     knotCount: 'Flat-weave',
     material: 'Vegetable-dyed wool',
     description:
@@ -160,7 +160,7 @@ export const rugs: Rug[] = [
     style: 'medallion',
     color: 'Terracotta',
     sizes: ["8'×10'", "9'×12'"],
-    price: 3680,
+    price: 36800,
     knotCount: 'Approx. 120 KPSI',
     material: 'Hand-knotted wool',
     description:
@@ -174,7 +174,7 @@ export const rugs: Rug[] = [
     style: 'bordered',
     color: 'Charcoal',
     sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 760,
+    price: 7600,
     knotCount: 'Flat-weave',
     material: 'Hand-knotted wool',
     description:

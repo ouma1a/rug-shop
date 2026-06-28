@@ -1,4 +1,9 @@
 import { Link } from 'react-router-dom'
+import { WHATSAPP_NUMBER } from '../lib/shop'
+
+const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  'Hello Maison! I have a question about your rugs.',
+)}`
 
 export default function Footer() {
   return (
@@ -7,9 +12,10 @@ export default function Footer() {
         <div className="md:col-span-2">
           <span className="font-serif text-2xl text-charcoal">Maison</span>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            A small studio sourcing handwoven rugs from the looms of Morocco, Türkiye and Persia —
-            each one knotted by hand, made to outlast trends.
+            A small studio of rugs handwoven in Morocco — each one knotted by hand and made with
+            love, then shipped with care to homes all over the world.
           </p>
+          <p className="mt-4 text-sm font-medium text-charcoal">Handmade with love ♥ · Ships worldwide</p>
         </div>
 
         <div>
@@ -34,10 +40,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-charcoal">Studio</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-charcoal">Contact</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted">
-            <li>Care &amp; cleaning</li>
-            <li>Shipping &amp; returns</li>
+            <li>
+              <a href={waLink} target="_blank" rel="noopener noreferrer" className="link-underline hover:text-charcoal">
+                Chat on WhatsApp
+              </a>
+            </li>
+            <li>Based in Morocco</li>
             <li>hello@maisonrugs.example</li>
           </ul>
         </div>

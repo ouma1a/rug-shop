@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
 import { rugs } from '../data/rugs'
+import { WHATSAPP_NUMBER } from '../lib/shop'
 import RugPattern from '../components/RugPattern'
 import ProductCard from '../components/ProductCard'
+import Reveal from '../components/Reveal'
+import CountUp from '../components/CountUp'
 
 const featured = rugs.filter((r) => r.featured)
+
+const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hello Maison! I'd love some help choosing a rug.",
+)}`
 
 export default function Home() {
   const hero = rugs[1] // Tabriz Indigo
@@ -14,15 +21,15 @@ export default function Home() {
       {/* HERO */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:grid-cols-2 md:pt-20">
         <div className="animate-fade-up">
-          <p className="eyebrow">Handwoven · Hand-knotted</p>
+          <p className="eyebrow">Handmade with love · Morocco</p>
           <h1 className="mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
             Floors worth
             <br />
             <span className="italic text-gold">coming home</span> to.
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
-            A curated collection of rugs knotted by hand in Morocco, Türkiye and Persia. Natural
-            wool, vegetable dyes, and patterns refined over generations.
+            Rugs knotted entirely by hand in Morocco — natural wool, vegetable dyes, and patterns
+            refined over generations. Made with love in our studio and shipped worldwide.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/shop" className="btn btn-primary">
@@ -33,9 +40,22 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-10 flex gap-8 border-t border-line pt-6">
-            <Stat value="120+" label="Looms sourced" />
-            <Stat value="3" label="Weaving regions" />
-            <Stat value="∞" label="One of a kind" />
+            <Stat>
+              <span className="font-serif text-3xl text-charcoal">
+                <CountUp end={100} suffix="%" />
+              </span>
+              <Label>Handmade</Label>
+            </Stat>
+            <Stat>
+              <span className="font-serif text-3xl text-charcoal">
+                <CountUp end={3} />
+              </span>
+              <Label>Weaving regions</Label>
+            </Stat>
+            <Stat>
+              <span className="font-serif text-3xl text-charcoal">∞</span>
+              <Label>One of a kind</Label>
+            </Stat>
           </div>
         </div>
 
@@ -43,26 +63,29 @@ export default function Home() {
           <div className="aspect-[3/4] overflow-hidden rounded-md shadow-[var(--shadow-lift)]">
             <RugPattern style={hero.style} palette={hero.palette} className="h-full w-full" />
           </div>
-          <div className="absolute -bottom-8 -left-8 hidden w-40 overflow-hidden rounded-md border-4 border-cream shadow-[var(--shadow-lift)] sm:block">
+          <div className="absolute -bottom-8 -left-8 hidden w-40 animate-float overflow-hidden rounded-md border-4 border-cream shadow-[var(--shadow-lift)] sm:block">
             <div className="aspect-[3/4]">
               <RugPattern style={heroAside.style} palette={heroAside.palette} className="h-full w-full" />
             </div>
           </div>
+          <span className="absolute -right-3 top-6 rotate-3 rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-white shadow-[var(--shadow-soft)]">
+            Made with love ♥
+          </span>
         </div>
       </section>
 
       {/* VALUE STRIP */}
       <section className="border-y border-line bg-cream-deep">
         <div className="mx-auto grid max-w-6xl gap-6 px-5 py-7 text-center sm:grid-cols-3 sm:px-8">
-          <Value title="Free white-glove delivery" sub="On orders over $1,000" />
-          <Value title="Natural materials" sub="Wool, silk & vegetable dyes" />
-          <Value title="30-day home trial" sub="Live with it before you commit" />
+          <Value title="100% handmade" sub="Every knot tied by hand" />
+          <Value title="Ships worldwide" sub="From our studio in Morocco" />
+          <Value title="Free white-glove delivery" sub="On orders over 10 000 DH" />
         </div>
       </section>
 
       {/* FEATURED */}
       <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="flex items-end justify-between">
+        <Reveal className="flex items-end justify-between">
           <div>
             <p className="eyebrow">Curated</p>
             <h2 className="mt-2 text-4xl">Featured pieces</h2>
@@ -70,33 +93,63 @@ export default function Home() {
           <Link to="/shop" className="link-underline hidden text-sm font-medium text-charcoal sm:block">
             View all →
           </Link>
-        </div>
+        </Reveal>
         <div className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((rug) => (
-            <ProductCard key={rug.id} rug={rug} />
+          {featured.map((rug, i) => (
+            <Reveal key={rug.id} delay={i * 90}>
+              <ProductCard rug={rug} />
+            </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* MADE WITH LOVE — features */}
+      <section className="bg-cream-deep">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Why Maison</p>
+            <h2 className="mt-2 text-4xl">Slow craft, made to be loved</h2>
+            <p className="mt-4 text-muted">
+              No machines, no shortcuts — just wool, dye, and the patient hands of the artisans who
+              weave each piece.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((f, i) => (
+              <Reveal key={f.title} delay={i * 90}>
+                <div className="flex flex-col items-center text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-cream text-gold shadow-[var(--shadow-soft)]">
+                    {f.icon}
+                  </div>
+                  <h3 className="mt-4 font-serif text-xl text-charcoal">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{f.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* STORY */}
       <section id="story" className="scroll-mt-24 bg-charcoal text-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-2">
-          <div className="order-2 md:order-1">
+          <Reveal className="order-2 md:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-md shadow-[var(--shadow-lift)]">
               <RugPattern style={rugs[6].style} palette={rugs[6].palette} fringe={false} className="h-full w-full" />
             </div>
-          </div>
-          <div className="order-1 md:order-2">
+          </Reveal>
+          <Reveal className="order-1 md:order-2" delay={120}>
             <p className="eyebrow">Our story</p>
-            <h2 className="mt-3 text-4xl text-cream">From the loom to your living room</h2>
+            <h2 className="mt-3 text-4xl text-cream">Handmade with love, shipped worldwide</h2>
             <p className="mt-5 leading-relaxed text-cream/75">
               Maison began with a simple belief: a rug should carry the hand of the person who made
-              it. We work directly with weaving cooperatives, paying fairly and buying slowly — so
-              every piece arrives with its own small history.
+              it. We work directly with weaving cooperatives across Morocco, paying fairly and buying
+              slowly — so every piece arrives with its own small history.
             </p>
             <p className="mt-4 leading-relaxed text-cream/75">
-              No two are identical. The slight irregularities you'll find are not flaws; they're the
-              signature of a loom and a pair of hands.
+              We're based in Morocco, but we ship everywhere. No two rugs are identical; the gentle
+              irregularities you'll find aren't flaws — they're the signature of a loom and a pair of
+              hands.
             </p>
             <Link
               to="/shop"
@@ -104,27 +157,84 @@ export default function Home() {
             >
               Explore the collection →
             </Link>
-          </div>
+          </Reveal>
         </div>
+      </section>
+
+      {/* WHATSAPP CTA */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+        <Reveal className="overflow-hidden rounded-lg border border-line bg-cream-deep px-8 py-12 text-center">
+          <h2 className="text-4xl">Not sure which rug is right?</h2>
+          <p className="mx-auto mt-3 max-w-md text-muted">
+            Tell us about your space and we'll help you choose — and arrange worldwide delivery.
+            We're a message away.
+          </p>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn mt-7 bg-[#25D366] text-white hover:opacity-90"
+          >
+            Chat with us on WhatsApp
+          </a>
+        </Reveal>
       </section>
     </>
   )
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <p className="font-serif text-3xl text-charcoal">{value}</p>
-      <p className="mt-1 text-xs uppercase tracking-[0.15em] text-muted">{label}</p>
-    </div>
-  )
-}
+const features = [
+  { title: 'Knotted by hand', text: 'Each rug is woven on a traditional loom — never machine-made.', icon: <HandIcon /> },
+  { title: 'Made with love', text: 'Crafted slowly by artisans who take pride in every row.', icon: <HeartIcon /> },
+  { title: 'Natural materials', text: 'Pure wool coloured with plant-based, vegetable dyes.', icon: <LeafIcon /> },
+  { title: 'Shipped worldwide', text: 'From our studio in Morocco to your door, wherever you are.', icon: <GlobeIcon /> },
+]
 
+function Stat({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>
+}
+function Label({ children }: { children: React.ReactNode }) {
+  return <p className="mt-1 text-xs uppercase tracking-[0.15em] text-muted">{children}</p>
+}
 function Value({ title, sub }: { title: string; sub: string }) {
   return (
     <div>
       <p className="font-serif text-lg text-charcoal">{title}</p>
       <p className="mt-1 text-sm text-muted">{sub}</p>
     </div>
+  )
+}
+
+function HandIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11" />
+      <path d="M11 11V4.5a1.5 1.5 0 0 1 3 0V11" />
+      <path d="M14 11V6.5a1.5 1.5 0 0 1 3 0V13" />
+      <path d="M17 8.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-4.2-1.7L4 14.5a1.5 1.5 0 0 1 2.1-2.1L8 14" />
+    </svg>
+  )
+}
+function HeartIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.7 5.5 5 5.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.3 0 4.4 3.5 3 6.3C19.5 16.4 12 21 12 21z" />
+    </svg>
+  )
+}
+function LeafIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 8-5 13-9 13a4 4 0 0 1-4-4" />
+      <path d="M8 17c2-4 5-6 9-7" />
+    </svg>
+  )
+}
+function GlobeIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9z" />
+    </svg>
   )
 }

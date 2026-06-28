@@ -27,7 +27,7 @@ assets or broken images.
 | `/shop`        | Product grid with filters (weave / colour / size) + sort  |
 | `/product/:id` | Detail: size & quantity selection, specs, related rugs    |
 | `/cart`        | Full cart with line items, quantities, order summary      |
-| `/checkout`    | Contact + shipping + (mock) payment → order confirmation  |
+| `/checkout`    | Contact + delivery details → confirm order via WhatsApp    |
 
 ## Tech
 React · TypeScript · Vite · Tailwind CSS v4 · React Router · Context + reducer · generated SVG
@@ -59,6 +59,13 @@ src/
   types.ts      Rug, Palette, CartLine, …
 ```
 
+## Checkout via WhatsApp
+There's no online payment. At checkout the customer fills in their contact and delivery details and
+presses **Confirm on WhatsApp** — this opens WhatsApp (`wa.me`) with the full order pre-written
+(items, sizes, quantities, totals and address) addressed to the shop owner, who replies to arrange
+delivery and payment. Set the destination number in `src/lib/shop.ts` (`WHATSAPP_NUMBER`,
+international format, digits only — e.g. `2126XXXXXXXX`).
+
 ## Notes
-This is a front-end demo: products are mock data and no real payment is processed — “Place order”
-runs the confirmation flow and clears the cart. Storage is the browser's `localStorage`.
+Prices are in Moroccan dirham (DH). Products are mock data; the cart persists in the browser's
+`localStorage`.

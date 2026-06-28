@@ -113,7 +113,7 @@ export default function Product() {
 
           <p className="mt-6 text-xs leading-relaxed text-muted">
             Each rug is one of a kind; slight variations in colour and weave are inherent to
-            handcraft. White-glove delivery is complimentary on orders over $1,000.
+            handcraft. White-glove delivery is complimentary on orders over 10 000 DH.
           </p>
         </div>
       </div>

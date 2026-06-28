@@ -11,8 +11,8 @@ import type { CartLine, RugSize } from '../types'
 import { getRug } from '../data/rugs'
 
 const STORAGE_KEY = 'maison-cart'
-export const FREE_SHIPPING_THRESHOLD = 1000
-export const SHIPPING_FLAT = 75
+export const FREE_SHIPPING_THRESHOLD = 10000
+export const SHIPPING_FLAT = 600
 
 type Action =
   | { type: 'add'; rugId: string; size: RugSize; quantity: number }

@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
+import AnnouncementBar from './components/AnnouncementBar'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Product from './pages/Product'
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollManager />
+      <AnnouncementBar />
       <Header />
       <main className="flex-1">
         <Routes>

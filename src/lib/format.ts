@@ -1,6 +1,4 @@
+// Moroccan dirham, e.g. "24 800 DH" — space-grouped (unambiguous) with the familiar
+// "DH" suffix rather than the ISO "MAD" code.
 export const formatPrice = (value: number) =>
-  new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(value)
+  `${Math.round(value).toLocaleString('en-US').replace(/,/g, ' ')} DH`
