@@ -36,7 +36,7 @@ export function buildWhatsAppUrl(o: OrderDetails): string {
     .join('\n')
 
   const message = [
-    `Hello Maison! I'd like to confirm my order ${o.orderId}.`,
+    `Hello Zinelle! I'd like to confirm my order ${o.orderId}.`,
     '',
     '*Items*',
     items,

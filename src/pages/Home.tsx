@@ -10,7 +10,7 @@ import CountUp from '../components/CountUp'
 const featured = rugs.filter((r) => r.featured)
 
 const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hello Maison! I'd love some help choosing a rug.",
+  "Hello Zinelle! I'd love some help choosing a rug.",
 )}`
 
 const styleSamples = allStyles.map((style) => ({
@@ -30,7 +30,7 @@ const testimonials = [
     place: 'Montréal, Canada',
   },
   {
-    quote: 'You can feel the love in every knot. Maison helped me choose the perfect size over WhatsApp.',
+    quote: 'You can feel the love in every knot. Zinelle helped me choose the perfect size over WhatsApp.',
     name: 'Layla M.',
     place: 'Dubai, UAE',
   },
@@ -174,7 +174,7 @@ export default function Home() {
       <section className="bg-cream-deep">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Why Maison</p>
+            <p className="eyebrow">Why Zinelle</p>
             <h2 className="mt-2 text-4xl">Slow craft, made to be loved</h2>
             <p className="mt-4 text-muted">
               No machines, no shortcuts — just wool, dye, and the patient hands of the artisans who
@@ -209,7 +209,7 @@ export default function Home() {
             <p className="eyebrow">Our story</p>
             <h2 className="mt-3 text-4xl text-cream">Handmade with love, shipped worldwide</h2>
             <p className="mt-5 leading-relaxed text-cream/75">
-              Maison began with a simple belief: a rug should carry the hand of the person who made
+              Zinelle began with a simple belief: a rug should carry the hand of the person who made
               it. We work directly with weaving cooperatives across Morocco, paying fairly and buying
               slowly — so every piece arrives with its own small history.
             </p>

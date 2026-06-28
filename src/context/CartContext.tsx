@@ -10,7 +10,7 @@ import {
 import type { CartLine, RugSize } from '../types'
 import { getRug } from '../data/rugs'
 
-const STORAGE_KEY = 'maison-cart'
+const STORAGE_KEY = 'zinelle-cart'
 export const FREE_SHIPPING_THRESHOLD = 10000
 export const SHIPPING_FLAT = 600
 

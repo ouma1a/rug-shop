@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { WHATSAPP_NUMBER } from '../lib/shop'
 
 const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  'Hello Maison! I have a question about your rugs.',
+  'Hello Zinelle! I have a question about your rugs.',
 )}`
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="mt-24 border-t border-line bg-cream-deep">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
-          <span className="font-serif text-2xl text-charcoal">Maison</span>
+          <span className="font-serif text-2xl text-charcoal">Zinelle</span>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             A small studio of rugs handwoven in Morocco — each one knotted by hand and made with
             love, then shipped with care to homes all over the world.
@@ -48,14 +48,14 @@ export default function Footer() {
               </a>
             </li>
             <li>Based in Morocco</li>
-            <li>hello@maisonrugs.example</li>
+            <li>hello@zinelle.example</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-muted sm:flex-row sm:px-8">
-          <p>© {new Date().getFullYear()} Maison Rugs. A demo storefront.</p>
+          <p>© {new Date().getFullYear()} Zinelle Rugs. A demo storefront.</p>
           <p>Handwoven · Hand-knotted · One of a kind</p>
         </div>
       </div>

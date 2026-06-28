@@ -16,7 +16,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link to="/" className="flex flex-col leading-none" onClick={() => setMenuOpen(false)}>
-          <span className="font-serif text-2xl tracking-tight text-charcoal">Maison</span>
+          <span className="font-serif text-2xl tracking-tight text-charcoal">Zinelle</span>
           <span className="text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-gold">
             Handwoven Rugs
           </span>

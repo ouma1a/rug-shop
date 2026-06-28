@@ -1,4 +1,4 @@
-# Maison — Handwoven Rugs
+# Zinelle — Handwoven Rugs
 
 [![CI](https://github.com/ouma1a/rug-shop/actions/workflows/ci.yml/badge.svg)](https://github.com/ouma1a/rug-shop/actions/workflows/ci.yml)
 
