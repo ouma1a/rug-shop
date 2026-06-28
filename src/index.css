@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+
+/* ---- Design tokens (luxury minimal) ---- */
+@theme {
+  --color-cream: #faf7f2;
+  --color-cream-deep: #f1ebe1;
+  --color-sand: #e7ddcd;
+  --color-charcoal: #1c1b19;
+  --color-ink: #2b2925;
+  --color-muted: #6f675c;
+  --color-gold: #b08d57;
+  --color-gold-soft: #c9a877;
+  --color-line: #e3dbcd;
+
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-soft: 0 18px 40px -24px rgba(28, 27, 25, 0.45);
+  --shadow-lift: 0 30px 60px -28px rgba(28, 27, 25, 0.55);
+}
+
+/* ---- Base ---- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-charcoal);
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: #fff;
+  }
+}
+
+/* ---- Reusable component classes ---- */
+@layer components {
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-gold);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+  }
+  .btn-primary:hover {
+    background: var(--color-gold);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-charcoal);
+    color: var(--color-charcoal);
+  }
+  .btn-ghost:hover {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 0;
+    background: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
