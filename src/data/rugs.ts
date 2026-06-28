@@ -1,4 +1,15 @@
 import type { Rug, RugStyle } from '../types'
+import data from './rugs.json'
+
+// ─────────────────────────────────────────────────────────────────────────────
+// To add / edit / remove rugs, edit `rugs.json` in this folder — not this file.
+// Each entry needs: id, name, origin, style, color, sizes, price, knotCount,
+// material, description, palette. Optional: images (real photos) and featured.
+//   • style must be one of: medallion | diamonds | stripes | lattice | bordered
+//   • sizes use: 2'×3' | 5'×8' | 8'×10' | 9'×12' | Runner
+//   • images live in /public/rugs and are referenced as "/rugs/your-photo.jpg"
+//     (when omitted, a generated pattern from `palette` is shown instead)
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const STYLE_LABELS: Record<RugStyle, string> = {
   medallion: 'Medallion',
@@ -8,210 +19,7 @@ export const STYLE_LABELS: Record<RugStyle, string> = {
   bordered: 'Bordered Field',
 }
 
-export const rugs: Rug[] = [
-  {
-    id: 'ait-ivory-cross',
-    name: 'Aït Ivory Cross',
-    origin: 'Taznakht, Morocco',
-    style: 'medallion',
-    color: 'Ivory',
-    sizes: ["2'×3'", 'Runner', "5'×8'"],
-    price: 4900,
-    knotCount: 'Hand-woven, low pile',
-    material: 'Hand-woven wool with embroidery',
-    description:
-      'A one-of-a-kind ivory rug from the Taznakht region, centred on a saffron cross medallion with a crimson lozenge heart. Four embroidered diamond motifs and zigzag side borders frame the soft, undyed wool field. Genuinely handmade — every irregularity is part of its story.',
-    palette: { field: '#efe6d4', border: '#7a2230', motif: '#8a2433', accent: '#e8a32d', fringe: '#e7dcc4' },
-    images: ['/rugs/white-rug1.jpg', '/rugs/white-rug4.jpg', '/rugs/white-rug2.jpg', '/rugs/white-rug3.jpg'],
-    featured: true,
-  },
-  {
-    id: 'glaoui-crimson',
-    name: 'Glaoui Crimson',
-    origin: 'Telouet, High Atlas',
-    style: 'diamonds',
-    color: 'Crimson',
-    sizes: ["2'×3'", "5'×8'"],
-    price: 5600,
-    knotCount: 'Hand-knotted & flat-woven',
-    material: 'Hand-knotted wool',
-    description:
-      'A striking Glaoui-style piece: eight hand-woven panels alternating crimson, saffron and ivory, each carrying its own Berber symbol within a chequered frame. Glaoui rugs famously mix knotted pile and flat-weave — equally at home on the floor or hung as a tapestry.',
-    palette: { field: '#f0e6d2', border: '#7c1f2b', motif: '#b0202f', accent: '#e7b32a', fringe: '#e9dcc2' },
-    images: ['/rugs/red-rug3.jpg', '/rugs/red-rug2.jpg', '/rugs/red-rug1.jpg'],
-    featured: true,
-  },
-  {
-    id: 'oushak-ivory',
-    name: 'Oushak Ivory',
-    origin: 'Oushak, Türkiye',
-    style: 'medallion',
-    color: 'Ivory',
-    sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 24800,
-    knotCount: 'Approx. 100 KPSI',
-    material: 'Hand-knotted wool',
-    description:
-      'A serene central medallion floating on a soft ivory field. Oushak weaves are prized for their luminous, low-contrast palettes that suit almost any room.',
-    palette: { field: '#efe7d6', border: '#8a6f4a', motif: '#6f5638', accent: '#b89b6a', fringe: '#d8c9ad' },
-    featured: true,
-  },
-  {
-    id: 'tabriz-indigo',
-    name: 'Tabriz Indigo',
-    origin: 'Tabriz, Persia',
-    style: 'medallion',
-    color: 'Indigo',
-    sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 42000,
-    knotCount: 'Approx. 250 KPSI',
-    material: 'Wool & silk blend',
-    description:
-      'Deep indigo grounds a finely detailed medallion edged in gold. A formal, collector-grade piece with exceptional knot density.',
-    palette: { field: '#20304a', border: '#14213a', motif: '#c9a877', accent: '#3f5a82', fringe: '#1a2740' },
-  },
-  {
-    id: 'beni-ourain-clay',
-    name: 'Beni Ourain Clay',
-    origin: 'Atlas Mountains, Morocco',
-    style: 'diamonds',
-    color: 'Terracotta',
-    sizes: ["5'×8'", "8'×10'"],
-    price: 16800,
-    knotCount: 'Plush ~2cm pile',
-    material: 'Undyed sheep wool',
-    description:
-      'The iconic Berber diamond lattice in warm clay tones. Thick, soft and forgiving underfoot — made to be lived on.',
-    palette: { field: '#f0e3d4', border: '#b5532a', motif: '#b5532a', accent: '#d98a5c', fringe: '#e6d3bc' },
-    featured: true,
-  },
-  {
-    id: 'noir-atlas',
-    name: 'Noir Atlas',
-    origin: 'Marrakesh, Morocco',
-    style: 'lattice',
-    color: 'Charcoal',
-    sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 12400,
-    knotCount: 'Flat-weave',
-    material: 'Vegetable-dyed wool',
-    description:
-      'A graphic charcoal lattice picked out in gold. Modern enough for a minimalist loft, timeless enough to keep for decades.',
-    palette: { field: '#2b2925', border: '#1c1b19', motif: '#b08d57', accent: '#6f675c', fringe: '#232120' },
-  },
-  {
-    id: 'azilal-sage',
-    name: 'Azilal Sage',
-    origin: 'Azilal, Morocco',
-    style: 'stripes',
-    color: 'Sage',
-    sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 9800,
-    knotCount: 'Flat-weave',
-    material: 'Hand-knotted wool',
-    description:
-      'Quiet sage bands with a fine diamond motif. An understated piece that brings a garden calm to hallways and bedrooms.',
-    palette: { field: '#e7e6da', border: '#5c6b4c', motif: '#5c6b4c', accent: '#8a9a73', fringe: '#d3d2c2' },
-  },
-  {
-    id: 'mrirt-rose',
-    name: 'Mrirt Rose',
-    origin: 'Mrirt, Morocco',
-    style: 'bordered',
-    color: 'Rose',
-    sizes: ["5'×8'", "8'×10'"],
-    price: 15200,
-    knotCount: 'Approx. 90 KPSI',
-    material: 'Hand-knotted wool',
-    description:
-      'A dusty-rose field framed by layered borders. Mrirt rugs are known for their dense, velvety wool and gentle colour.',
-    palette: { field: '#f3e3df', border: '#9a5b54', motif: '#9a5b54', accent: '#c98e84', fringe: '#e6cfc9' },
-  },
-  {
-    id: 'kashan-saffron',
-    name: 'Kashan Saffron',
-    origin: 'Kashan, Persia',
-    style: 'medallion',
-    color: 'Saffron',
-    sizes: ["5'×8'", "8'×10'", "9'×12'"],
-    price: 32600,
-    knotCount: 'Approx. 200 KPSI',
-    material: 'Wool on cotton warp',
-    description:
-      'A radiant saffron medallion with classical pendants and spandrels. Kashan is the benchmark for traditional Persian craftsmanship.',
-    palette: { field: '#f4e7c9', border: '#b8862b', motif: '#8a6312', accent: '#d9a93f', fringe: '#e6d3a3' },
-  },
-  {
-    id: 'zanafi-slate',
-    name: 'Zanafi Slate',
-    origin: 'Taznakht, Morocco',
-    style: 'diamonds',
-    color: 'Slate',
-    sizes: ["2'×3'", "5'×8'"],
-    price: 11200,
-    knotCount: 'Flat-weave',
-    material: 'Hand-knotted wool',
-    description:
-      'Cool slate diamonds on a pale ground — a crisp, contemporary take on the Zanafi tradition.',
-    palette: { field: '#dfe3e6', border: '#3a4750', motif: '#3a4750', accent: '#6f828c', fringe: '#c9d0d4' },
-  },
-  {
-    id: 'taznakht-ivory',
-    name: 'Taznakht Ivory',
-    origin: 'Taznakht, Morocco',
-    style: 'lattice',
-    color: 'Ivory',
-    sizes: ["5'×8'", "8'×10'", 'Runner'],
-    price: 13800,
-    knotCount: 'Approx. 80 KPSI',
-    material: 'Undyed sheep wool',
-    description:
-      'A soft ivory lattice with golden nodes. Endlessly versatile — it reads as texture rather than pattern from across a room.',
-    palette: { field: '#f1ebe1', border: '#b08d57', motif: '#b08d57', accent: '#c9a877', fringe: '#e3dbcd' },
-  },
-  {
-    id: 'anatolia-kilim-indigo',
-    name: 'Anatolia Kilim Indigo',
-    origin: 'Anatolia, Türkiye',
-    style: 'stripes',
-    color: 'Indigo',
-    sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 8600,
-    knotCount: 'Flat-weave',
-    material: 'Vegetable-dyed wool',
-    description:
-      'Bold indigo bands with ivory diamonds — a classic flat-weave kilim that travels well between traditional and modern interiors.',
-    palette: { field: '#e8e9ec', border: '#20304a', motif: '#20304a', accent: '#4f6da0', fringe: '#d5d7dd' },
-  },
-  {
-    id: 'heriz-terracotta',
-    name: 'Heriz Terracotta',
-    origin: 'Heriz, Persia',
-    style: 'medallion',
-    color: 'Terracotta',
-    sizes: ["8'×10'", "9'×12'"],
-    price: 36800,
-    knotCount: 'Approx. 120 KPSI',
-    material: 'Hand-knotted wool',
-    description:
-      'A commanding angular medallion in terracotta and rust. Heriz rugs are famously hard-wearing — heirlooms in the making.',
-    palette: { field: '#f3e7da', border: '#a8451f', motif: '#7d3416', accent: '#cf7a4a', fringe: '#e6d3bc' },
-  },
-  {
-    id: 'hanbel-noir',
-    name: 'Hanbel Noir',
-    origin: 'High Atlas, Morocco',
-    style: 'bordered',
-    color: 'Charcoal',
-    sizes: ["2'×3'", "5'×8'", 'Runner'],
-    price: 7600,
-    knotCount: 'Flat-weave',
-    material: 'Hand-knotted wool',
-    description:
-      'A light field framed by a stark charcoal border and a small gilded centre. Lightweight, graphic, and easy to layer.',
-    palette: { field: '#f1ebe1', border: '#1c1b19', motif: '#1c1b19', accent: '#b08d57', fringe: '#e3dbcd' },
-  },
-]
+export const rugs = data as unknown as Rug[]
 
 export const getRug = (id: string) => rugs.find((r) => r.id === id)
 

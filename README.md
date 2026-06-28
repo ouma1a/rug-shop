@@ -59,6 +59,39 @@ src/
   types.ts      Rug, Palette, CartLine, …
 ```
 
+## Editing the catalogue (no code needed)
+
+All rug information lives in one file: **`src/data/rugs.json`**. Add, edit, or remove rugs there —
+change a price, a name, a description, sizes, or photos — and the whole site updates.
+
+Each rug looks like this:
+
+```json
+{
+  "id": "ait-ivory-cross",
+  "name": "Aït Ivory Cross",
+  "origin": "Taznakht, Morocco",
+  "style": "medallion",
+  "color": "Ivory",
+  "sizes": ["2'×3'", "Runner", "5'×8'"],
+  "price": 4900,
+  "knotCount": "Hand-woven, low pile",
+  "material": "Hand-woven wool with embroidery",
+  "description": "…",
+  "palette": { "field": "#efe6d4", "border": "#7a2230", "motif": "#8a2433", "accent": "#e8a32d", "fringe": "#e7dcc4" },
+  "images": ["/rugs/white-rug1.jpg", "/rugs/white-rug4.jpg"],
+  "featured": true
+}
+```
+
+- `style`: one of `medallion` · `diamonds` · `stripes` · `lattice` · `bordered`
+- `sizes`: any of `2'×3'` · `5'×8'` · `8'×10'` · `9'×12'` · `Runner`
+- `images`: drop photos in `public/rugs/` and list them as `/rugs/filename.jpg`. The first is the
+  main image; the rest become gallery thumbnails. **Omit `images`** and a pattern is generated from
+  `palette` instead.
+- `featured: true` shows the rug in the homepage "Featured" row.
+- `price` is a plain number in dirham (e.g. `4900` → "4 900 DH").
+
 ## Checkout via WhatsApp
 There's no online payment. At checkout the customer fills in their contact and delivery details and
 presses **Confirm on WhatsApp** — this opens WhatsApp (`wa.me`) with the full order pre-written
