@@ -5,6 +5,7 @@ import { formatPrice } from '../lib/format'
 import type { RugSize } from '../types'
 import { useCart } from '../context/CartContext'
 import RugPattern from '../components/RugPattern'
+import RoomScene from '../components/RoomScene'
 import QuantityStepper from '../components/QuantityStepper'
 import ProductCard from '../components/ProductCard'
 
@@ -117,6 +118,25 @@ export default function Product() {
           </p>
         </div>
       </div>
+
+      {/* Styled in a room */}
+      <section className="mt-24 grid items-center gap-10 md:grid-cols-2">
+        <div className="order-2 md:order-1">
+          <RoomScene rug={rug} />
+        </div>
+        <div className="order-1 md:order-2">
+          <p className="eyebrow">See it styled</p>
+          <h2 className="mt-2 text-4xl">In your space</h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            The {rug.name} brings warmth and texture wherever it lands — under a coffee table, beside
+            the bed, or anchoring a reading nook. Handwoven in {rug.origin}, and shipped with care to
+            your door.
+          </p>
+          <p className="mt-4 text-sm text-muted">
+            Not sure about the size? Message us and we'll help you choose.
+          </p>
+        </div>
+      </section>
 
       {/* Related */}
       {related.length > 0 && (

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { rugs } from '../data/rugs'
+import { rugs, allStyles, STYLE_LABELS } from '../data/rugs'
 import { WHATSAPP_NUMBER } from '../lib/shop'
 import RugPattern from '../components/RugPattern'
 import ProductCard from '../components/ProductCard'
@@ -12,6 +12,29 @@ const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hello Maison! I'd love some help choosing a rug.",
 )}`
 
+const styleSamples = allStyles.map((style) => ({
+  style,
+  rug: rugs.find((r) => r.style === style)!,
+}))
+
+const testimonials = [
+  {
+    quote: 'The craftsmanship is breathtaking. It feels like a piece of art we get to walk on every day.',
+    name: 'Camille R.',
+    place: 'Paris, France',
+  },
+  {
+    quote: 'Shipped all the way to Montréal and arrived perfectly. The colours are even richer in person.',
+    name: 'Noah B.',
+    place: 'Montréal, Canada',
+  },
+  {
+    quote: 'You can feel the love in every knot. Maison helped me choose the perfect size over WhatsApp.',
+    name: 'Layla M.',
+    place: 'Dubai, UAE',
+  },
+]
+
 export default function Home() {
   const hero = rugs[1] // Tabriz Indigo
   const heroAside = rugs[2] // Beni Ourain Clay
@@ -19,7 +42,13 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:grid-cols-2 md:pt-20">
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <span className="absolute -left-16 top-10 h-72 w-72 animate-drift rounded-full bg-gold-soft/25 blur-3xl" />
+          <span className="absolute right-0 top-1/3 h-80 w-80 animate-drift rounded-full bg-sand/50 blur-3xl" style={{ animationDelay: '-6s' }} />
+          <span className="absolute bottom-0 left-1/3 h-64 w-64 animate-drift rounded-full bg-gold/10 blur-3xl" style={{ animationDelay: '-11s' }} />
+        </div>
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:grid-cols-2 md:pt-20">
         <div className="animate-fade-up">
           <p className="eyebrow">Handmade with love · Morocco</p>
           <h1 className="mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
@@ -72,6 +101,11 @@ export default function Home() {
             Made with love ♥
           </span>
         </div>
+        </div>
+        <div className="flex flex-col items-center gap-1 pb-8 text-muted">
+          <span className="text-[0.62rem] uppercase tracking-[0.3em]">Scroll</span>
+          <span className="animate-float text-lg">↓</span>
+        </div>
       </section>
 
       {/* VALUE STRIP */}
@@ -100,6 +134,38 @@ export default function Home() {
               <ProductCard rug={rug} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* SHOP BY STYLE */}
+      <section className="border-y border-line bg-cream-deep">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+          <Reveal className="text-center">
+            <p className="eyebrow">Lookbook</p>
+            <h2 className="mt-2 text-4xl">Shop by weave</h2>
+            <p className="mx-auto mt-3 max-w-md text-muted">
+              Five traditions, one obsession with detail. Find the language that speaks to your home.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-5">
+            {styleSamples.map((s, i) => (
+              <Reveal key={s.style} delay={i * 80}>
+                <Link to="/shop" className="group block text-center">
+                  <div className="aspect-square overflow-hidden rounded-md shadow-[var(--shadow-soft)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-lift)]">
+                    <RugPattern
+                      style={s.style}
+                      palette={s.rug.palette}
+                      fringe={false}
+                      className="h-full w-full transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <p className="mt-3 font-serif text-lg text-charcoal transition-colors group-hover:text-gold">
+                    {STYLE_LABELS[s.style]}
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -158,6 +224,31 @@ export default function Home() {
               Explore the collection →
             </Link>
           </Reveal>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+        <Reveal className="text-center">
+          <p className="eyebrow">Loved worldwide</p>
+          <h2 className="mt-2 text-4xl">From homes around the world</h2>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 100}>
+              <figure className="flex h-full flex-col rounded-md border border-line bg-cream p-7 shadow-[var(--shadow-soft)]">
+                <div className="text-gold" aria-hidden>
+                  ★★★★★
+                </div>
+                <blockquote className="mt-4 flex-1 font-serif text-xl leading-snug text-charcoal">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-5 text-sm text-muted">
+                  <span className="font-semibold text-charcoal">{t.name}</span> · {t.place}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
       </section>
 

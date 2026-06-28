@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
 import AnnouncementBar from './components/AnnouncementBar'
+import ScrollProgress from './components/ScrollProgress'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Product from './pages/Product'
@@ -38,20 +39,25 @@ function NotFound() {
 }
 
 export default function App() {
+  const location = useLocation()
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollProgress />
       <ScrollManager />
       <AnnouncementBar />
       <Header />
       <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        {/* keyed by path so each page fades in on navigation */}
+        <div key={location.pathname} className="animate-fade-up">
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </main>
       <Footer />
       <CartDrawer />

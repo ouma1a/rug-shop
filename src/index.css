@@ -167,11 +167,68 @@
   animation: float 6s ease-in-out infinite;
 }
 
+/* drifting hero blobs */
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(24px, -28px) scale(1.08);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+.animate-drift {
+  animation: drift 16s ease-in-out infinite;
+}
+
+/* cart badge pop */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: pop 0.4s ease;
+}
+
+/* primary button sheen sweep */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-primary:hover::after {
+  left: 150%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-float,
-  .animate-fade-up {
+  .animate-fade-up,
+  .animate-drift,
+  .animate-pop {
     animation: none;
+  }
+  .btn-primary::after {
+    transition: none;
   }
   .reveal {
     opacity: 1;

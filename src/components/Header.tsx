@@ -48,7 +48,10 @@ export default function Header() {
           >
             <BagIcon />
             {count > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[0.65rem] font-semibold text-white">
+              <span
+                key={count}
+                className="animate-pop absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[0.65rem] font-semibold text-white"
+              >
                 {count}
               </span>
             )}
