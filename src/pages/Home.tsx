@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { rugs, allStyles, STYLE_LABELS } from '../data/rugs'
+import { rugs, allStyles, STYLE_LABELS, getRug } from '../data/rugs'
 import { WHATSAPP_NUMBER } from '../lib/shop'
 import RugPattern from '../components/RugPattern'
+import RugMedia from '../components/RugMedia'
 import ProductCard from '../components/ProductCard'
 import Reveal from '../components/Reveal'
 import CountUp from '../components/CountUp'
@@ -36,8 +37,8 @@ const testimonials = [
 ]
 
 export default function Home() {
-  const hero = rugs[1] // Tabriz Indigo
-  const heroAside = rugs[2] // Beni Ourain Clay
+  const hero = getRug('ait-ivory-cross')! // real ivory rug
+  const heroAside = getRug('glaoui-crimson')! // real crimson rug
 
   return (
     <>
@@ -90,11 +91,11 @@ export default function Home() {
 
         <div className="relative animate-fade-up" style={{ animationDelay: '120ms' }}>
           <div className="aspect-[3/4] overflow-hidden rounded-md shadow-[var(--shadow-lift)]">
-            <RugPattern style={hero.style} palette={hero.palette} className="h-full w-full" />
+            <RugMedia rug={hero} className="h-full w-full" />
           </div>
           <div className="absolute -bottom-8 -left-8 hidden w-40 animate-float overflow-hidden rounded-md border-4 border-cream shadow-[var(--shadow-lift)] sm:block">
             <div className="aspect-[3/4]">
-              <RugPattern style={heroAside.style} palette={heroAside.palette} className="h-full w-full" />
+              <RugMedia rug={heroAside} className="h-full w-full" />
             </div>
           </div>
           <span className="absolute -right-3 top-6 rotate-3 rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-white shadow-[var(--shadow-soft)]">
@@ -201,7 +202,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-2">
           <Reveal className="order-2 md:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-md shadow-[var(--shadow-lift)]">
-              <RugPattern style={rugs[6].style} palette={rugs[6].palette} fringe={false} className="h-full w-full" />
+              <RugMedia rug={heroAside} imageIndex={0} fringe={false} className="h-full w-full" />
             </div>
           </Reveal>
           <Reveal className="order-1 md:order-2" delay={120}>

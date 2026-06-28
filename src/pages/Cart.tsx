@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useCart, FREE_SHIPPING_THRESHOLD } from '../context/CartContext'
 import { getRug } from '../data/rugs'
 import { formatPrice } from '../lib/format'
-import RugPattern from '../components/RugPattern'
+import RugMedia from '../components/RugMedia'
 import QuantityStepper from '../components/QuantityStepper'
 
 export default function Cart() {
@@ -41,7 +41,7 @@ export default function Cart() {
                   to={`/product/${rug.id}`}
                   className="h-32 w-24 shrink-0 overflow-hidden rounded bg-cream-deep"
                 >
-                  <RugPattern style={rug.style} palette={rug.palette} className="h-full w-full" />
+                  <RugMedia rug={rug} className="h-full w-full" />
                 </Link>
                 <div className="flex flex-1 flex-col">
                   <div className="flex justify-between gap-3">

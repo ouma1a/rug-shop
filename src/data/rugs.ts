@@ -10,6 +10,38 @@ export const STYLE_LABELS: Record<RugStyle, string> = {
 
 export const rugs: Rug[] = [
   {
+    id: 'ait-ivory-cross',
+    name: 'Aït Ivory Cross',
+    origin: 'Taznakht, Morocco',
+    style: 'medallion',
+    color: 'Ivory',
+    sizes: ["2'×3'", 'Runner', "5'×8'"],
+    price: 4900,
+    knotCount: 'Hand-woven, low pile',
+    material: 'Hand-woven wool with embroidery',
+    description:
+      'A one-of-a-kind ivory rug from the Taznakht region, centred on a saffron cross medallion with a crimson lozenge heart. Four embroidered diamond motifs and zigzag side borders frame the soft, undyed wool field. Genuinely handmade — every irregularity is part of its story.',
+    palette: { field: '#efe6d4', border: '#7a2230', motif: '#8a2433', accent: '#e8a32d', fringe: '#e7dcc4' },
+    images: ['/rugs/white-rug1.jpg', '/rugs/white-rug4.jpg', '/rugs/white-rug2.jpg', '/rugs/white-rug3.jpg'],
+    featured: true,
+  },
+  {
+    id: 'glaoui-crimson',
+    name: 'Glaoui Crimson',
+    origin: 'Telouet, High Atlas',
+    style: 'diamonds',
+    color: 'Crimson',
+    sizes: ["2'×3'", "5'×8'"],
+    price: 5600,
+    knotCount: 'Hand-knotted & flat-woven',
+    material: 'Hand-knotted wool',
+    description:
+      'A striking Glaoui-style piece: eight hand-woven panels alternating crimson, saffron and ivory, each carrying its own Berber symbol within a chequered frame. Glaoui rugs famously mix knotted pile and flat-weave — equally at home on the floor or hung as a tapestry.',
+    palette: { field: '#f0e6d2', border: '#7c1f2b', motif: '#b0202f', accent: '#e7b32a', fringe: '#e9dcc2' },
+    images: ['/rugs/red-rug3.jpg', '/rugs/red-rug2.jpg', '/rugs/red-rug1.jpg'],
+    featured: true,
+  },
+  {
     id: 'oushak-ivory',
     name: 'Oushak Ivory',
     origin: 'Oushak, Türkiye',
@@ -37,7 +69,6 @@ export const rugs: Rug[] = [
     description:
       'Deep indigo grounds a finely detailed medallion edged in gold. A formal, collector-grade piece with exceptional knot density.',
     palette: { field: '#20304a', border: '#14213a', motif: '#c9a877', accent: '#3f5a82', fringe: '#1a2740' },
-    featured: true,
   },
   {
     id: 'beni-ourain-clay',
@@ -109,7 +140,6 @@ export const rugs: Rug[] = [
     description:
       'A radiant saffron medallion with classical pendants and spandrels. Kashan is the benchmark for traditional Persian craftsmanship.',
     palette: { field: '#f4e7c9', border: '#b8862b', motif: '#8a6312', accent: '#d9a93f', fringe: '#e6d3a3' },
-    featured: true,
   },
   {
     id: 'zanafi-slate',

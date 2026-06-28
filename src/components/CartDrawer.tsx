@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { getRug } from '../data/rugs'
 import { formatPrice } from '../lib/format'
-import RugPattern from './RugPattern'
+import RugMedia from './RugMedia'
 import QuantityStepper from './QuantityStepper'
 
 export default function CartDrawer() {
@@ -66,7 +66,7 @@ export default function CartDrawer() {
                       onClick={close}
                       className="h-24 w-20 shrink-0 overflow-hidden rounded bg-cream-deep"
                     >
-                      <RugPattern style={rug.style} palette={rug.palette} fringe={false} className="h-full w-full" />
+                      <RugMedia rug={rug} fringe={false} className="h-full w-full" />
                     </Link>
                     <div className="flex flex-1 flex-col">
                       <div className="flex justify-between gap-2">

@@ -2,16 +2,15 @@ import { Link } from 'react-router-dom'
 import type { Rug } from '../types'
 import { STYLE_LABELS } from '../data/rugs'
 import { formatPrice } from '../lib/format'
-import RugPattern from './RugPattern'
+import RugMedia from './RugMedia'
 
 export default function ProductCard({ rug }: { rug: Rug }) {
   return (
     <Link to={`/product/${rug.id}`} className="group block">
       <div className="relative overflow-hidden rounded-md bg-cream-deep shadow-[var(--shadow-soft)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-lift)]">
         <div className="aspect-[3/4] overflow-hidden">
-          <RugPattern
-            style={rug.style}
-            palette={rug.palette}
+          <RugMedia
+            rug={rug}
             className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           />
         </div>

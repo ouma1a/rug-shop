@@ -27,7 +27,10 @@ export interface Rug {
   knotCount: string
   material: string
   description: string
+  /** Fallback generated-pattern palette (used when no photos are supplied). */
   palette: Palette
+  /** Real product photos. When present, these are shown instead of the generated pattern. */
+  images?: string[]
   featured?: boolean
 }
 

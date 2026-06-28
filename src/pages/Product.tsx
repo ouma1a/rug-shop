@@ -15,6 +15,7 @@ export default function Product() {
   const { add } = useCart()
   const [size, setSize] = useState<RugSize | null>(rug ? rug.sizes[0] : null)
   const [qty, setQty] = useState(1)
+  const [active, setActive] = useState(0)
 
   if (!rug) {
     return (
@@ -57,8 +58,34 @@ export default function Product() {
         {/* Visual */}
         <div className="md:sticky md:top-24 md:self-start">
           <div className="aspect-[3/4] overflow-hidden rounded-md shadow-[var(--shadow-lift)]">
-            <RugPattern style={rug.style} palette={rug.palette} className="h-full w-full" />
+            {rug.images ? (
+              <img
+                src={rug.images[active] ?? rug.images[0]}
+                alt={rug.name}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <RugPattern style={rug.style} palette={rug.palette} className="h-full w-full" />
+            )}
           </div>
+
+          {rug.images && rug.images.length > 1 && (
+            <div className="mt-3 grid grid-cols-4 gap-3">
+              {rug.images.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  className={`aspect-square overflow-hidden rounded-md transition-all ${
+                    active === i ? 'ring-2 ring-gold ring-offset-2 ring-offset-cream' : 'opacity-70 hover:opacity-100'
+                  }`}
+                  aria-label={`View photo ${i + 1}`}
+                >
+                  <img src={src} alt="" className="h-full w-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Info */}
@@ -119,24 +146,26 @@ export default function Product() {
         </div>
       </div>
 
-      {/* Styled in a room */}
-      <section className="mt-24 grid items-center gap-10 md:grid-cols-2">
-        <div className="order-2 md:order-1">
-          <RoomScene rug={rug} />
-        </div>
-        <div className="order-1 md:order-2">
-          <p className="eyebrow">See it styled</p>
-          <h2 className="mt-2 text-4xl">In your space</h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            The {rug.name} brings warmth and texture wherever it lands — under a coffee table, beside
-            the bed, or anchoring a reading nook. Handwoven in {rug.origin}, and shipped with care to
-            your door.
-          </p>
-          <p className="mt-4 text-sm text-muted">
-            Not sure about the size? Message us and we'll help you choose.
-          </p>
-        </div>
-      </section>
+      {/* Styled in a room — synthetic scene only for generated rugs (real ones have photos above) */}
+      {!rug.images && (
+        <section className="mt-24 grid items-center gap-10 md:grid-cols-2">
+          <div className="order-2 md:order-1">
+            <RoomScene rug={rug} />
+          </div>
+          <div className="order-1 md:order-2">
+            <p className="eyebrow">See it styled</p>
+            <h2 className="mt-2 text-4xl">In your space</h2>
+            <p className="mt-4 leading-relaxed text-muted">
+              The {rug.name} brings warmth and texture wherever it lands — under a coffee table,
+              beside the bed, or anchoring a reading nook. Handwoven in {rug.origin}, and shipped with
+              care to your door.
+            </p>
+            <p className="mt-4 text-sm text-muted">
+              Not sure about the size? Message us and we'll help you choose.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Related */}
       {related.length > 0 && (
